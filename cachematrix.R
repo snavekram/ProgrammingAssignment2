@@ -1,12 +1,12 @@
-## makeCacheMatrix & cacheSolve are two functions that work together in order to
-## generate the inverse of a square matrix.
+## This R Script is my solution for Coursera Course R Programming (RPROG-006) Programming Assignment 2: Lexical Scoping
+##
+## makeCacheMatrix & cacheSolve are two functions that work together in order to generate the inverse of a square matrix using a caching tecnique.
 
 ## Function call procedure is;
-## tempvariable <- makeCacheMatrix(matrixtoinvert)
-## inverse <- cacheSolve(tempvariable)
+##   tempvariable <- makeCacheMatrix(matrixtoinvert)
+##   inverse <- cacheSolve(tempvariable)
 
-## Initial call will calculate the inverse, subsequent calls will use the cached answer
-## and display an alert.
+## Initial call will calculate the inverse, subsequent calls will use the cached answer and display an alert.
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
         ## inv   Cached version of the inverse of x, stored in the parent environment
         ##
         ## Methods / Calls
-        ## get()    Returns a cached version of the matrix to be inverted
+        ## get()    Returns the matrix that was last inverted
         ## set()    Initialises a special version of the matrix to be inverted
         ## getinv() Get the cached version of the inverted matrix
         ## setinv() Set the cached version of the inverted matrix to the passed variable
@@ -45,8 +45,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 cacheSolve <- function(x, ...) {
+
         ## Return a matrix that is the inverse of 'x'
-       
+        ##       
         ## Description
         ## Calculates the inverse of a square matrix but uses a caching technique to minimise calculation effort if a repeat call is made.
         ##
@@ -54,7 +55,7 @@ cacheSolve <- function(x, ...) {
         ## Needs to be used in conjunction with the function makeCacheMatrix
         ##
         ## Arguments
-        ## x A square matrix that is to be inverted
+        ## x A square matrix that is to be inverted (assumed that inverse always exsits)
         
         ## Check if an inverse already exists in the cache.  If it does then return the stored inverse.
         inv <- x$getinv()
